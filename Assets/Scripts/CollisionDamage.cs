@@ -38,7 +38,15 @@ public class CollisionDamage : MonoBehaviour
 
         if (collisionSpeed.magnitude > requiredVelocity)
         {
-            float damageToTake = (collisionSpeed.magnitude * otherRBody.mass) / GetComponent<Rigidbody2D>().mass;
+            float damageToTake;
+            if (otherRBody != null)
+            {
+                damageToTake = (collisionSpeed.magnitude * otherRBody.mass) / GetComponent<Rigidbody2D>().mass;
+            }
+            else
+            {
+                damageToTake = collisionSpeed.magnitude / GetComponent<Rigidbody2D>().mass;
+            }
 
             TakeDamage(damageToTake);
             Debug.Log(objHealth + " health left");

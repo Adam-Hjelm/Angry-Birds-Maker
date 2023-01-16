@@ -139,6 +139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isAirborne: 0
   triggerAbility: 0
+  abilityUses: 1
 --- !u!114 &-4207339633865215830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,3 +152,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe6ff9ad93d939048b5271c12d1f3f4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speedUpFX: {fileID: 543593377222890914, guid: 5ff76b52554f00d4289d3be302367044, type: 3}

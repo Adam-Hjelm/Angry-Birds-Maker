@@ -28,7 +28,6 @@ public class SpeedUpBird : MonoBehaviour
         var newSpeedUpFx = Instantiate(speedUpFX, transform.position, Quaternion.LookRotation(projectileRbody.velocity * -1));
         Destroy(newSpeedUpFx, 1);
 
-
         projectileRbody.velocity *= 2.5f;
         //projectileRbody.mass /= 2;
         GetComponent<Projectile>().triggerAbility = false;

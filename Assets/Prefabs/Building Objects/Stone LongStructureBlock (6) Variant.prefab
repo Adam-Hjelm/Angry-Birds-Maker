@@ -72,6 +72,10 @@ PrefabInstance:
       value: Stone LongStructureBlock (6) Variant
       objectReference: {fileID: 0}
     - target: {fileID: 5159349107342102594, guid: a846ea29804e0bb4086c07050505c98b, type: 3}
+      propertyPath: objHealth
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5159349107342102594, guid: a846ea29804e0bb4086c07050505c98b, type: 3}
       propertyPath: damagedSprite
       value: 
       objectReference: {fileID: 21300000, guid: 74858ecae3ef5b547a9b6a98c31fd54f, type: 3}

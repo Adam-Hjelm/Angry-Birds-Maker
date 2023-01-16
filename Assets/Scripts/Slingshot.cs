@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Slingshot : MonoBehaviour
 {
@@ -26,7 +27,9 @@ public class Slingshot : MonoBehaviour
 
     public float force;
 
-    public int currentKills;
+    public int currentShots;
+
+    public ColorHandler colorHandler;
 
     void Start()
     {
@@ -41,7 +44,7 @@ public class Slingshot : MonoBehaviour
     void InstantiateBird()
     {
         GameObject newBird = Instantiate(birdPrefab);
-
+        colorHandler.birdSprite = newBird.GetComponent<SpriteRenderer>();
         birdRBody = newBird.GetComponent<Rigidbody2D>();
         birdCollider = newBird.GetComponent<Collider2D>();
         birdCollider.enabled = false;
@@ -85,7 +88,10 @@ public class Slingshot : MonoBehaviour
     private void OnMouseUp()
     {
         isMouseDown = false;
-        Shoot();
+        if (birdRBody != null)
+        {
+            Shoot();
+        }
         currentPosition = idlePosition.position;
     }
 

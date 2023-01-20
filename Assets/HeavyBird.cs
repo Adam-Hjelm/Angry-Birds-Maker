@@ -7,12 +7,6 @@ public class HeavyBird : MonoBehaviour
 {
     public ParticleSystem weightParticleSys;
 
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (GetComponent<Projectile>().triggerAbility)

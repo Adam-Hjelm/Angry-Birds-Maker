@@ -15,7 +15,6 @@ public class TrajectoryLine : MonoBehaviour
     private float timeOfTheFlight = 2.5f;
     //private float timeStep;
 
-    // Start is called before the first frame update
     void Start()
     {
         lineRend.enabled = false;

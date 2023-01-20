@@ -34,7 +34,6 @@ public class CollisionDamage : MonoBehaviour
 
     public ObjectState currentObjectState;
 
-    // Start is called before the first frame update
     void Start()
     {
         startObjHealth = objHealth;
@@ -62,15 +61,6 @@ public class CollisionDamage : MonoBehaviour
 
             if (doSpeedUp && otherRBody != null)
                 otherRBody.velocity = collisionSpeed / 2;
-
-            //if (collisionSpeed.magnitude > (objHealth * 5))
-            //{
-            //    DestroySelf();
-            //    if (collision.gameObject.GetComponent<Rigidbody2D>() != null)
-            //    {
-            //        collision.gameObject.GetComponent<Rigidbody2D>().velocity = collisionSpeed / 2;
-            //    }
-            //}
         }
 
     }
@@ -78,7 +68,6 @@ public class CollisionDamage : MonoBehaviour
     private void DestroySelf()
     {
         objHealth = 0;
-
 
         //if (gameObject.CompareTag("Enemy"))
         //{

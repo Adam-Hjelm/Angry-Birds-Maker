@@ -44,9 +44,6 @@ public class Slingshot : MonoBehaviour
         lineRenderers[1].SetPosition(0, stripPositions[1].position);
 
         InstantiateBird();
-
-
-
     }
 
     void InstantiateBird()

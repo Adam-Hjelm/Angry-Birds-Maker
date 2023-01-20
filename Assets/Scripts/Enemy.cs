@@ -4,28 +4,16 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float velocityNeeded;
+    //public float velocityNeeded;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    Vector2 collisionSpeed = collision.relativeVelocity;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Vector2 collisionSpeed = collision.relativeVelocity;
-
-        if (collisionSpeed.magnitude > velocityNeeded)
-        {
+    //    if (collisionSpeed.magnitude > velocityNeeded)
+    //    {
 
 
-        }
-    }
+    //    }
+    //}
 }

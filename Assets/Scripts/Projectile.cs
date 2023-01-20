@@ -10,11 +10,6 @@ public class Projectile : MonoBehaviour
 
     public int abilityUses = 1;
 
-    void Start()
-    {
-
-    }
-
     void Update()
     {
         if (isAirborne && Input.GetMouseButtonDown(0) && abilityUses > 0)

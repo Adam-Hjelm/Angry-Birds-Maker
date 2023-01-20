@@ -9,12 +9,6 @@ public class ColorHandler : MonoBehaviour
     public Slider slider;
     public SpriteRenderer birdSprite;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     private void LoadColor()
     {
         slider.value = PlayerPrefs.GetFloat(COLOR_NAME_KEY);

@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 1868756105566189010}
   - component: {fileID: 8902920631975704357}
   - component: {fileID: -2465884496386501396}
-  - component: {fileID: -4207339633865215830}
   m_Layer: 0
   m_Name: AngryBird
   m_TagString: Untagged
@@ -30,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 1073726747060218272}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.4231532, y: -1.2556443, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -140,16 +139,3 @@ MonoBehaviour:
   isAirborne: 0
   triggerAbility: 0
   abilityUses: 1
---- !u!114 &-4207339633865215830
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1073726747060218272}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe6ff9ad93d939048b5271c12d1f3f4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speedUpFX: {fileID: 543593377222890914, guid: 5ff76b52554f00d4289d3be302367044, type: 3}

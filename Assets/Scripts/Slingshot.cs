@@ -18,7 +18,7 @@ public class Slingshot : MonoBehaviour
 
     bool isMouseDown;
 
-    public GameObject birdPrefab;
+    public GameObject[] birdPrefabs;
 
     public float birdPositionOffset;
 
@@ -26,24 +26,35 @@ public class Slingshot : MonoBehaviour
     Collider2D birdCollider;
 
     public float force;
+    public Vector3 birdVelocity;
 
     public int currentShots;
 
     public ColorHandler colorHandler;
 
+    private TrajectoryLine trajectoryLine;
+
     void Start()
     {
+        trajectoryLine = GetComponent<TrajectoryLine>();
+
         lineRenderers[0].positionCount = 2;
         lineRenderers[1].positionCount = 2;
         lineRenderers[0].SetPosition(0, stripPositions[0].position);
         lineRenderers[1].SetPosition(0, stripPositions[1].position);
 
         InstantiateBird();
+
+
+
     }
 
     void InstantiateBird()
     {
-        GameObject newBird = Instantiate(birdPrefab);
+        int randomNumber = Random.Range(0, 3);
+
+        GameObject newBird = Instantiate(birdPrefabs[randomNumber]);
+
         colorHandler.birdSprite = newBird.GetComponent<SpriteRenderer>();
         birdRBody = newBird.GetComponent<Rigidbody2D>();
         birdCollider = newBird.GetComponent<Collider2D>();
@@ -67,6 +78,9 @@ public class Slingshot : MonoBehaviour
 
             currentPosition = ClampBoundary(currentPosition);
 
+            trajectoryLine.projectilePos = currentPosition;
+            trajectoryLine.DisplayTrajectoryLine(-1 * force * (currentPosition - center.position), currentPosition);
+
             SetStrips(currentPosition);
 
             if (birdCollider)
@@ -77,6 +91,7 @@ public class Slingshot : MonoBehaviour
         else
         {
             ResetStrips();
+            trajectoryLine.HidedDisplayLine();
         }
     }
 
@@ -98,11 +113,12 @@ public class Slingshot : MonoBehaviour
     void Shoot()
     {
         birdRBody.isKinematic = false;
-        Vector3 birdForce = (currentPosition - center.position) * force * -1;
-        birdRBody.velocity = birdForce;
+        birdVelocity = -1 * force * (currentPosition - center.position);
+        birdRBody.velocity = birdVelocity;
         birdRBody.gameObject.GetComponent<Projectile>().isAirborne = true;
 
         //bird.GetComponent<Bird>().Release();
+        Destroy(birdRBody.gameObject, 10);
 
         birdRBody = null;
         birdCollider = null;

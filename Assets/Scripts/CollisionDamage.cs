@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class CollisionDamage : MonoBehaviour
 {
+    [SerializeField] float maxDamage;
+    [SerializeField] float minDamage;
+
     private float startObjHealth;
     public float objHealth;
     public Sprite[] sprites;
@@ -13,8 +16,23 @@ public class CollisionDamage : MonoBehaviour
 
     public ParticleSystem damageParticle;
     public Sprite damagedSprite;
+    public ParticleSystem destroyedParticle;
 
     private bool doSpeedUp = false;
+
+    public Color metalColor;
+    public Color stoneColor;
+    public Color woodColor;
+
+    public enum ObjectState
+    {
+        Enemy,
+        WoodBlock,
+        StoneBlock,
+        MetalBlock
+    }
+
+    public ObjectState currentObjectState;
 
     // Start is called before the first frame update
     void Start()
@@ -22,12 +40,6 @@ public class CollisionDamage : MonoBehaviour
         startObjHealth = objHealth;
         spriteRend = GetComponent<SpriteRenderer>();
         requiredVelocity = startObjHealth / 2;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -39,18 +51,14 @@ public class CollisionDamage : MonoBehaviour
         if (collisionSpeed.magnitude > requiredVelocity)
         {
             float damageToTake;
-            if (otherRBody != null)
-            {
-                damageToTake = (collisionSpeed.magnitude * otherRBody.mass) / GetComponent<Rigidbody2D>().mass;
-            }
-            else
-            {
-                damageToTake = collisionSpeed.magnitude / GetComponent<Rigidbody2D>().mass;
-            }
+            damageToTake = collisionSpeed.magnitude;
 
+
+            Mathf.Clamp(damageToTake, minDamage, maxDamage);
             TakeDamage(damageToTake);
-            Debug.Log(objHealth + " health left");
-            Debug.Log(damageToTake);
+
+            //Debug.Log(objHealth + " health left");
+            //Debug.Log(damageToTake);
 
             if (doSpeedUp && otherRBody != null)
                 otherRBody.velocity = collisionSpeed / 2;
@@ -77,6 +85,29 @@ public class CollisionDamage : MonoBehaviour
 
         //}
         //Do some particles explosion stuff
+
+        if (!gameObject.CompareTag("Enemy"))
+        {
+            var newParticle = Instantiate(destroyedParticle, transform.position, Quaternion.identity);
+            
+            var main = newParticle.main;
+            switch (currentObjectState)
+            {
+                case ObjectState.WoodBlock:
+                    main.startColor = woodColor;
+                    Debug.Log("spawning WOOD COLORED destroyed particles");
+                    break;
+                case ObjectState.StoneBlock:
+                    main.startColor = stoneColor;
+                    break;
+                case ObjectState.MetalBlock:
+                    main.startColor = metalColor;
+                    break;
+                default:
+                    break;
+            }
+            Destroy(newParticle, 1);
+        }
         Destroy(gameObject);
     }
 

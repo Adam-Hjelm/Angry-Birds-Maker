@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5759799297106506854}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,10 +99,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2566ae583b01ef4abd7bc43e9009b0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxDamage: 0
+  minDamage: 0
   objHealth: 2
   sprites: []
   damageParticle: {fileID: 0}
   damagedSprite: {fileID: 0}
+  destroyedParticle: {fileID: 0}
+  metalColor: {r: 0, g: 0, b: 0, a: 0}
+  stoneColor: {r: 0, g: 0, b: 0, a: 0}
+  woodColor: {r: 0, g: 0, b: 0, a: 0}
+  currentObjectState: 0
 --- !u!50 &5759799297106506855
 Rigidbody2D:
   serializedVersion: 4

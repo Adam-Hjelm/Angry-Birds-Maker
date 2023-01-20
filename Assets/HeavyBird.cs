@@ -24,7 +24,7 @@ public class HeavyBird : MonoBehaviour
     private void WeightUo()
     {
         var projectileRbody = GetComponent<Rigidbody2D>();
-        var newWeightFX = Instantiate(weightParticleSys, transform.position, Quaternion.LookRotation(projectileRbody.velocity * -1));
+        var newWeightFX = Instantiate(weightParticleSys, transform.position, Quaternion.LookRotation(transform.up));
 
         projectileRbody.mass *= 5;
 

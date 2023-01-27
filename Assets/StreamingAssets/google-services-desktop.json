@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "823735617707",
+    "firebase_url": "https://angry-birds-maker-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "angry-birds-maker",
+    "storage_bucket": "angry-birds-maker.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:823735617707:android:b7fda18cbaf0ad3867cfee",
+        "android_client_info": {
+          "package_name": "com.DefaultCompany.AngryBirdsMaker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "823735617707-o248be5j13km9n4sng10jack56ojjg35.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDkWxDAF-M_aN-9IVNOoDnT3i5CgsJlhkU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "823735617707-o248be5j13km9n4sng10jack56ojjg35.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "823735617707-mlopa73un38pkk9b6djj64g5a7m5kkj2.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.DefaultCompany.Angry-Birds-Maker"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

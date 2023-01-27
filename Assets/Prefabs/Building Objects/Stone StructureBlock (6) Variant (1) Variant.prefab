@@ -1,0 +1,113 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &3966482313086200573
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 159034981958689110, guid: a846ea29804e0bb4086c07050505c98b, type: 3}
+      propertyPath: m_Mass
+      value: 0.28068858
+      objectReference: {fileID: 0}
+    - target: {fileID: 2846771606220049934, guid: a846ea29804e0bb4086c07050505c98b, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2846771606220049934, guid: a846ea29804e0bb4086c07050505c98b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2846771606220049934, guid: a846ea29804e0bb4086c07050505c98b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2846771606220049934, guid: a846ea29804e0bb4086c07050505c98b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 2846771606220049934, guid: a846ea29804e0bb4086c07050505c98b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 2846771606220049934, guid: a846ea29804e0bb4086c07050505c98b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2846771606220049934, guid: a846ea29804e0bb4086c07050505c98b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2846771606220049934, guid: a846ea29804e0bb4086c07050505c98b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2846771606220049934, guid: a846ea29804e0bb4086c07050505c98b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2846771606220049934, guid: a846ea29804e0bb4086c07050505c98b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2846771606220049934, guid: a846ea29804e0bb4086c07050505c98b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2846771606220049934, guid: a846ea29804e0bb4086c07050505c98b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2846771606220049934, guid: a846ea29804e0bb4086c07050505c98b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3967549685216684242, guid: a846ea29804e0bb4086c07050505c98b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7124ad7ebd4cbaf47aa713bc6f1e9a0d, type: 3}
+    - target: {fileID: 4897580917725379003, guid: a846ea29804e0bb4086c07050505c98b, type: 3}
+      propertyPath: m_Name
+      value: Stone StructureBlock (6) Variant (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5159349107342102594, guid: a846ea29804e0bb4086c07050505c98b, type: 3}
+      propertyPath: damagedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8a5633ea47fa86544ad7b1db10e3078b, type: 3}
+    m_RemovedComponents:
+    - {fileID: 7470095090212813631, guid: a846ea29804e0bb4086c07050505c98b, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: a846ea29804e0bb4086c07050505c98b, type: 3}
+--- !u!1 &8429741522762584902 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4897580917725379003, guid: a846ea29804e0bb4086c07050505c98b, type: 3}
+  m_PrefabInstance: {fileID: 3966482313086200573}
+  m_PrefabAsset: {fileID: 0}
+--- !u!60 &3332555366807511873
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8429741522762584902}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.09375, y: 0.546875}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.0022478104, y: 0.2637701}
+      - {x: 0.5341587, y: -0.26083097}
+      - {x: -0.5333407, y: -0.2633772}

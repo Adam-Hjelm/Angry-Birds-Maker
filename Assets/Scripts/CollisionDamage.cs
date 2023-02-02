@@ -45,7 +45,7 @@ public class CollisionDamage : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("collided");
+        //Debug.Log("collided");
         Vector2 collisionSpeed = collision.relativeVelocity;
         Rigidbody2D otherRBody = collision.gameObject.GetComponent<Rigidbody2D>();
 
@@ -86,7 +86,7 @@ public class CollisionDamage : MonoBehaviour
             {
                 case ObjectState.WoodBlock:
                     main.startColor = woodColor;
-                    Debug.Log("spawning WOOD COLORED destroyed particles");
+                    //Debug.Log("spawning WOOD COLORED destroyed particles");
                     break;
                 case ObjectState.StoneBlock:
                     main.startColor = stoneColor;

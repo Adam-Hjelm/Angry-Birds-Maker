@@ -26,4 +26,10 @@ public class BuildButton : MonoBehaviour
         dragHandler.lastDragged = buildObject.GetComponent<DraggableObject>();
         dragHandler.isDragging = true;
     }
+
+    private void OnMouseDown()
+    {
+        Debug.Log("pressed!");
+        SpawnBuildingBlock();
+    }
 }

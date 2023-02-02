@@ -91,7 +91,7 @@ CircleCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8297807356686554356}
   m_Enabled: 1
-  m_Density: 1
+  m_Density: 1.2
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0

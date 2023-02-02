@@ -52,9 +52,4 @@ public class TrajectoryLine : MonoBehaviour
         }
         return LineRendPoints;
     }
-
-    public void HidedDisplayLine()
-    {
-        lineRend.enabled = false;
-    }
 }

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6875105706077723159
+--- !u!1 &5223807816488949019
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,41 +8,41 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4260185769272716706}
-  - component: {fileID: 3139407758723058558}
-  - component: {fileID: 2210135653986108154}
-  - component: {fileID: -2664077647199570962}
-  - component: {fileID: 8878248788016273555}
-  - component: {fileID: 7098687175565309423}
+  - component: {fileID: 5223807816488949017}
+  - component: {fileID: 5223807816488949018}
+  - component: {fileID: 870275210784418227}
+  - component: {fileID: 4318702148964384641}
+  - component: {fileID: 362545926562995002}
+  - component: {fileID: -8335907706100776363}
   m_Layer: 0
-  m_Name: StructureBlock
-  m_TagString: Block
+  m_Name: Metal StructureBlock
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4260185769272716706
+--- !u!4 &5223807816488949017
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6875105706077723159}
+  m_GameObject: {fileID: 5223807816488949019}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.04, y: -3.55, z: 0}
-  m_LocalScale: {x: 0.75, y: 0.75, z: 1}
+  m_LocalPosition: {x: -3.39, y: -2.92, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &3139407758723058558
+--- !u!212 &5223807816488949018
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6875105706077723159}
+  m_GameObject: {fileID: 5223807816488949019}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -77,30 +77,30 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 6bb94aa6b7ebcee4da7c85c15aea8b98, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ab07b46fba878b844b32d818df3a8f8f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.7, y: 0.7}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &2210135653986108154
+--- !u!50 &870275210784418227
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6875105706077723159}
+  m_GameObject: {fileID: 5223807816488949019}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 0.5625
+  m_Mass: 2.2049997
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -109,39 +109,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-2664077647199570962
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6875105706077723159}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2566ae583b01ef4abd7bc43e9009b0b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxDamage: 10
-  minDamage: 1
-  objHealth: 8
-  sprites: []
-  damageParticle: {fileID: 4401853237473978536, guid: e4f274cb476f6864b987ce899ff75b27, type: 3}
-  damagedSprite: {fileID: 21300000, guid: b7b5ec3e308c5664f8a568d33373f28d, type: 3}
-  destroyedParticle: {fileID: 1406383047412546647, guid: 7d708a239c0cd2a4a9441e74c88ba7d9, type: 3}
-  metalColor: {r: 0.7254902, g: 0.80392164, b: 0.8313726, a: 0}
-  stoneColor: {r: 0.3803922, g: 0.42352945, b: 0.427451, a: 0}
-  woodColor: {r: 0.5882353, g: 0.40000004, b: 0.21960786, a: 0}
-  shapeIndex: 0
-  currentObjectState: 1
---- !u!61 &8878248788016273555
+--- !u!61 &4318702148964384641
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6875105706077723159}
+  m_GameObject: {fileID: 5223807816488949019}
   m_Enabled: 1
-  m_Density: 1
+  m_Density: 2
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
@@ -150,22 +126,46 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.8235294, y: 0.8235294}
-    newSize: {x: 1, y: 1}
+    oldSize: {x: 1.09375, y: 1.09375}
+    newSize: {x: 0.7, y: 0.7}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.75, y: 0.75}
+  m_Size: {x: 1.05, y: 1.05}
   m_EdgeRadius: 0
---- !u!114 &7098687175565309423
+--- !u!114 &362545926562995002
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6875105706077723159}
+  m_GameObject: {fileID: 5223807816488949019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2566ae583b01ef4abd7bc43e9009b0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxDamage: 10
+  minDamage: 1
+  objHealth: 20
+  sprites: []
+  damageParticle: {fileID: 4401853237473978536, guid: e4f274cb476f6864b987ce899ff75b27, type: 3}
+  damagedSprite: {fileID: 21300000, guid: 2e145b2fec01d934199a27f09e5d0add, type: 3}
+  destroyedParticle: {fileID: 1406383047412546647, guid: 7d708a239c0cd2a4a9441e74c88ba7d9, type: 3}
+  metalColor: {r: 0.7254902, g: 0.80392164, b: 0.8313726, a: 0}
+  stoneColor: {r: 0.3803922, g: 0.42352945, b: 0.427451, a: 0}
+  woodColor: {r: 0.5882353, g: 0.40000004, b: 0.21960786, a: 0}
+  shapeIndex: 0
+  currentObjectState: 3
+--- !u!114 &-8335907706100776363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5223807816488949019}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d1187db208d7c6246809f2debd690e5a, type: 3}

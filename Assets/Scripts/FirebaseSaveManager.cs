@@ -1,5 +1,6 @@
 using Firebase.Database;
 using Firebase.Extensions;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class FirebaseSaveManager : MonoBehaviour
@@ -67,6 +68,26 @@ public class FirebaseSaveManager : MonoBehaviour
 
             //Call our delegate if it's not null
             onSaveDelegate?.Invoke();
+        });
+    }
+
+
+    public delegate void OnLoadedMultipleDelegate<T>(List<T> data); //list of objects
+
+    //Returns one list of objects that we want to load from the database
+    public void LoadMultipleData<T>(string path, OnLoadedMultipleDelegate<T> onLoadedDelegate)
+    {
+        db.RootReference.Child(path).GetValueAsync().ContinueWithOnMainThread(task =>
+        {
+            if (task.Exception != null)
+                Debug.LogWarning(task.Exception);
+
+            var ListOfT = new List<T>();
+
+            foreach (var item in task.Result.Children)
+                ListOfT.Add(JsonUtility.FromJson<T>(item.GetRawJsonValue()));
+
+            onLoadedDelegate(ListOfT);
         });
     }
 

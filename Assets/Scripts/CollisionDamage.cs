@@ -24,6 +24,8 @@ public class CollisionDamage : MonoBehaviour
     public Color stoneColor;
     public Color woodColor;
 
+    public int shapeIndex;
+
     public enum ObjectState
     {
         Enemy,
@@ -78,7 +80,7 @@ public class CollisionDamage : MonoBehaviour
         if (!gameObject.CompareTag("Enemy"))
         {
             var newParticle = Instantiate(destroyedParticle, transform.position, Quaternion.identity);
-            
+
             var main = newParticle.main;
             switch (currentObjectState)
             {
@@ -97,7 +99,7 @@ public class CollisionDamage : MonoBehaviour
             }
             Destroy(newParticle, 1);
         }
-        Destroy(gameObject);
+        Destroy(gameObject.gameObject);
     }
 
     private void TakeDamage(float damagetaken)
@@ -110,7 +112,7 @@ public class CollisionDamage : MonoBehaviour
             var main = newDamageParticle.main;
             main.startColor = gameObject.GetComponent<SpriteRenderer>().color;
 
-            Destroy(newDamageParticle, main.duration);
+            Destroy(newDamageParticle.gameObject, main.duration);
         }
 
         if (startObjHealth / 2 >= objHealth && damagedSprite != null)

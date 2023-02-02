@@ -48,7 +48,7 @@ public class Slingshot : MonoBehaviour
 
     void InstantiateBird()
     {
-        int randomNumber = Random.Range(0, 3);
+        int randomNumber = Random.Range(0, 3); // change from random so you can choose birds during map creation
 
         GameObject newBird = Instantiate(birdPrefabs[randomNumber]);
 
@@ -70,10 +70,9 @@ public class Slingshot : MonoBehaviour
             mousePosition.z = 10;
 
             currentPosition = Camera.main.ScreenToWorldPoint(mousePosition);
-            currentPosition = center.position + Vector3.ClampMagnitude(currentPosition
-                - center.position, maxLength);
+            currentPosition = center.position + Vector3.ClampMagnitude(currentPosition - center.position, maxLength);
 
-            currentPosition = ClampBoundary(currentPosition);
+            currentPosition.y = Mathf.Clamp(currentPosition.y, bottomBoundary, 1000);
 
             trajectoryLine.projectilePos = currentPosition;
             trajectoryLine.DisplayTrajectoryLine(-1 * force * (currentPosition - center.position), currentPosition);
@@ -88,7 +87,7 @@ public class Slingshot : MonoBehaviour
         else
         {
             ResetStrips();
-            trajectoryLine.HidedDisplayLine();
+            trajectoryLine.lineRend.enabled = false;
         }
     }
 
@@ -114,7 +113,6 @@ public class Slingshot : MonoBehaviour
         birdRBody.velocity = birdVelocity;
         birdRBody.gameObject.GetComponent<Projectile>().isAirborne = true;
 
-        //bird.GetComponent<Bird>().Release();
         Destroy(birdRBody.gameObject, 10);
 
         birdRBody = null;
@@ -139,11 +137,5 @@ public class Slingshot : MonoBehaviour
             birdRBody.transform.position = position + dir.normalized * birdPositionOffset;
             birdRBody.transform.right = -dir.normalized;
         }
-    }
-
-    Vector3 ClampBoundary(Vector3 vector)
-    {
-        vector.y = Mathf.Clamp(vector.y, bottomBoundary, 1000);
-        return vector;
     }
 }

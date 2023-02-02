@@ -34,6 +34,7 @@ public class BuildButtonHandler : MonoBehaviour
         for (int i = 0; i < buildButtonScripts.Length; i++)
         {
             buildButtonScripts[i].buttonImage.sprite = buildButtonScripts[i].buildBlockButtonSprites[materialNumber];
+            buildButtonScripts[i].currentMatNumber = materialNumber;
         }
     }
 }

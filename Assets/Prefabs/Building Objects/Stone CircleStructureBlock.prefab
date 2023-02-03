@@ -72,6 +72,10 @@ PrefabInstance:
       value: Stone CircleStructureBlock
       objectReference: {fileID: 0}
     - target: {fileID: 5159349107342102594, guid: a846ea29804e0bb4086c07050505c98b, type: 3}
+      propertyPath: shapeIndex
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5159349107342102594, guid: a846ea29804e0bb4086c07050505c98b, type: 3}
       propertyPath: damagedSprite
       value: 
       objectReference: {fileID: 21300000, guid: 8cfdf98674e03964490894ed599350c1, type: 3}

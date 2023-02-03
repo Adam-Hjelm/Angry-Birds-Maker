@@ -72,6 +72,10 @@ PrefabInstance:
       value: Stone DoubleTriangleStructureBlock (6) Variant (1) Variant
       objectReference: {fileID: 0}
     - target: {fileID: 5159349107342102594, guid: a846ea29804e0bb4086c07050505c98b, type: 3}
+      propertyPath: shapeIndex
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5159349107342102594, guid: a846ea29804e0bb4086c07050505c98b, type: 3}
       propertyPath: damagedSprite
       value: 
       objectReference: {fileID: 21300000, guid: 8a5633ea47fa86544ad7b1db10e3078b, type: 3}

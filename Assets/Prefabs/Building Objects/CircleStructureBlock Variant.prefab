@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -2664077647199570962, guid: e942dca81ec268649afaccd5950372f9, type: 3}
+      propertyPath: shapeIndex
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2210135653986108154, guid: e942dca81ec268649afaccd5950372f9, type: 3}
       propertyPath: m_Mass
       value: 0.5285044
@@ -69,7 +73,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6875105706077723159, guid: e942dca81ec268649afaccd5950372f9, type: 3}
       propertyPath: m_Name
-      value: CircleStructureBlock
+      value: CircleStructureBlock Variant
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8878248788016273555, guid: e942dca81ec268649afaccd5950372f9, type: 3}

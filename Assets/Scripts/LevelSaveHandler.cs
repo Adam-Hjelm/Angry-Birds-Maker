@@ -1,11 +1,13 @@
+using Firebase.Database;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Firebase.Auth;
 
 [Serializable]
 public class Level
 {
-    public string _name;
+    public string _name; // TODO: Dont allow characters past a certain limit
     public List<LevelObject> levelObjects;
 }
 
@@ -45,15 +47,31 @@ public class LevelSaveHandler : MonoBehaviour
             }
             FirebaseSaveManager.Instance.PushData("games/levels", JsonUtility.ToJson(level));
         }
-
-
         if (Input.GetKeyDown(KeyCode.L))
         {
-            FirebaseSaveManager.Instance.LoadMultipleData<LevelObject>("games", LoadResult);
+            string userID = FirebaseAuth.DefaultInstance.CurrentUser.UserId;
+
+            Debug.Log(userID);
+            FirebaseSaveManager.Instance.LoadData("games/levels", LoadResult);
         }
+
+
+
+        //if (Input.GetKeyDown(KeyCode.L)) //EXAMPLE FOR LOADING MULTIPLE OBJECTS
+        //{
+        //    FirebaseSaveManager.Instance.LoadMultipleData<LevelObject>("games", LoadResultMultiple);
+        //}
     }
 
-    private void LoadResult(List<LevelObject> data)
+    private void LoadResult(DataSnapshot snapshot)
+    {
+        //foreach (var item in data)
+        //{
+        //    Debug.Log(item.position);
+        //}
+    }
+
+    private void LoadResultMultiple(List<LevelObject> data) // For loading multiple objects
     {
         foreach (var item in data)
         {

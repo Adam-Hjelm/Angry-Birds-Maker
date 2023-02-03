@@ -48,7 +48,7 @@ public class TrajectoryLine : MonoBehaviour
             Vector3 gravityDiff = Vector3.up * -0.5f * Physics.gravity.y * timeDiff * timeDiff;
             Vector3 withGravityPosition = startPos + noGravityPosition - gravityDiff;
             LineRendPoints[i] = withGravityPosition;
-            Debug.Log(LineRendPoints[i]);
+            //Debug.Log(LineRendPoints[i]);
         }
         return LineRendPoints;
     }

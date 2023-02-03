@@ -10,17 +10,22 @@ public class DraggableObject : MonoBehaviour
     void Start()
     {
         dragHandler = GameObject.Find("DragHandler").GetComponent<DragHandler>();
-
-        if (DragHandler.BuildMode)
-            EnablePhysicsForObject(false);
+        if (dragHandler != null)
+        {
+            if (DragHandler.BuildMode)
+                EnablePhysicsForObject(false);
+        }
     }
 
     private void Update()
     {
-        if (DragHandler.BuildMode)      // TODO: Put this in the function that activates or deactivates buildmode later!
-            EnablePhysicsForObject(false);
-        else if (!DragHandler.BuildMode)
-            EnablePhysicsForObject(true);
+        if (dragHandler != null)
+        {
+            if (DragHandler.BuildMode)      // TODO: Put this in the function that activates or deactivates buildmode later!
+                EnablePhysicsForObject(false);
+            else if (!DragHandler.BuildMode)
+                EnablePhysicsForObject(true);
+        }
     }
 
     public void EnablePhysicsForObject(bool isEnabled)
@@ -38,10 +43,13 @@ public class DraggableObject : MonoBehaviour
 
     private void OnDestroy()
     {
-        if (dragHandler.lastDragged == this)
+        if (dragHandler != null)
         {
-            dragHandler.isDragging = false;
-            dragHandler.lastDragged = null;
+            if (dragHandler.lastDragged == this)
+            {
+                dragHandler.isDragging = false;
+                dragHandler.lastDragged = null;
+            }
         }
     }
 }

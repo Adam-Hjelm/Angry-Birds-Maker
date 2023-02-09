@@ -27,6 +27,8 @@ public class CollisionDamage : MonoBehaviour
     public int shapeIndex;
     public int isRotatedIndex = 0;
 
+    public WintrackingScript wintracker;
+
     public enum ObjectState
     {
         Enemy,
@@ -42,6 +44,9 @@ public class CollisionDamage : MonoBehaviour
         startObjHealth = objHealth;
         spriteRend = GetComponent<SpriteRenderer>();
         requiredVelocity = startObjHealth / 2;
+
+        if (currentObjectState == ObjectState.Enemy)
+            wintracker = GameObject.Find("WinTracker").GetComponent<WintrackingScript>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -99,6 +104,15 @@ public class CollisionDamage : MonoBehaviour
                     break;
             }
             Destroy(newParticle, 1);
+        }
+        else
+        {
+            if (wintracker.CheckIfMatchWon())
+                Debug.Log("You Won!");
+            else
+            {
+                Debug.Log("One Enemy Down");
+            }
         }
         Destroy(gameObject.gameObject);
     }

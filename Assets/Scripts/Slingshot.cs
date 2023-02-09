@@ -30,7 +30,7 @@ public class Slingshot : MonoBehaviour
 
     public int currentShots;
 
-    public ColorHandler colorHandler;
+    //public ColorHandler colorHandler;
 
     private TrajectoryLine trajectoryLine;
 
@@ -48,11 +48,11 @@ public class Slingshot : MonoBehaviour
 
     void InstantiateBird()
     {
-        int randomNumber = Random.Range(0, 3); // change from random so you can choose birds during map creation
+        int randomNumber = Random.Range(0, 3); // TODO: change from random so you can choose birds during map creation
 
         GameObject newBird = Instantiate(birdPrefabs[randomNumber]);
 
-        colorHandler.birdSprite = newBird.GetComponent<SpriteRenderer>();
+        //colorHandler.birdSprite = newBird.GetComponent<SpriteRenderer>();
         birdRBody = newBird.GetComponent<Rigidbody2D>();
         birdCollider = newBird.GetComponent<Collider2D>();
         birdCollider.enabled = false;

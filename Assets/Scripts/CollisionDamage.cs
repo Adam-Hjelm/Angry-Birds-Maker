@@ -25,6 +25,7 @@ public class CollisionDamage : MonoBehaviour
     public Color woodColor;
 
     public int shapeIndex;
+    public int isRotatedIndex = 0;
 
     public enum ObjectState
     {

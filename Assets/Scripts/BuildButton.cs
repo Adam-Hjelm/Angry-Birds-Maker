@@ -13,6 +13,8 @@ public class BuildButton : MonoBehaviour
 
     public DragHandler dragHandler;
 
+    public bool rotated;
+
     private void Start()
     {
         buttonImage = GetComponent<Image>();
@@ -23,13 +25,19 @@ public class BuildButton : MonoBehaviour
         GameObject buildObject = Instantiate(buildObjects[currentMatNumber]);
         //buildObject.GetComponent<BuildBlock>().isDragged = true;
 
+        if (rotated)
+        {
+            buildObject.transform.rotation = Quaternion.Euler(0, 0, 90);
+            buildObject.GetComponent<CollisionDamage>().isRotatedIndex = 1;
+        }
+
         dragHandler.lastDragged = buildObject.GetComponent<DraggableObject>();
         dragHandler.isDragging = true;
     }
 
     private void OnMouseDown()
     {
-        Debug.Log("pressed!");
+        //Debug.Log("pressed!");
         SpawnBuildingBlock();
     }
 }

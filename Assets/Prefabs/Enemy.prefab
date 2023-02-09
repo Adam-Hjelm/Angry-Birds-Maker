@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5759799297106506852}
   - component: {fileID: 5759799297106506855}
   - component: {fileID: 5759799297106506854}
+  - component: {fileID: 7328927078223638155}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -99,8 +100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2566ae583b01ef4abd7bc43e9009b0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxDamage: 0
-  minDamage: 0
+  maxDamage: 2
+  minDamage: 0.5
   objHealth: 2
   sprites: []
   damageParticle: {fileID: 0}
@@ -109,6 +110,7 @@ MonoBehaviour:
   metalColor: {r: 0, g: 0, b: 0, a: 0}
   stoneColor: {r: 0, g: 0, b: 0, a: 0}
   woodColor: {r: 0, g: 0, b: 0, a: 0}
+  shapeIndex: 0
   currentObjectState: 0
 --- !u!50 &5759799297106506855
 Rigidbody2D:
@@ -122,7 +124,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.25
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -147,3 +149,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &7328927078223638155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5759799297106506858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1187db208d7c6246809f2debd690e5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dragHandler: {fileID: 0}

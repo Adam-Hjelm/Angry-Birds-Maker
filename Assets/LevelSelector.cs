@@ -13,7 +13,11 @@ public class LevelSelector : MonoBehaviour
 
     public GameObject[] woodObjects;
     public GameObject[] stoneObjects;
-    public GameObject[] metalbjects;
+    public GameObject[] metalObjects;
+    public GameObject enemyObject;
+
+    public GameObject levelListCanvas;
+    public GameObject levelParts;
 
     void Start()
     {
@@ -27,6 +31,7 @@ public class LevelSelector : MonoBehaviour
 
     public void ListGames()
     {
+        levelListCanvas.SetActive(true);
         Debug.Log("Listing Games");
 
         foreach (Transform child in levelsListHolder.transform)
@@ -55,36 +60,51 @@ public class LevelSelector : MonoBehaviour
         //    //Don't list our own games or full games.
         //    return;
         //}
-
-
     }
 
     private void LoadLevel(Level level)
     {
+        levelListCanvas.SetActive(false);
+
         var levelGO = level.levelObjects;
 
         for (int i = 0; i < levelGO.Count; i++)
         {
             GameObject[] chosenObjectMat = null;
+            GameObject chosenObject = null;
 
             switch (levelGO[i].objectMatIndex)
             {
                 case 0:
-                    chosenObjectMat = woodObjects;
+                    chosenObject = enemyObject;
                     break;
                 case 1:
-                    chosenObjectMat = stoneObjects;
+                    chosenObjectMat = woodObjects;
                     break;
                 case 2:
-                    chosenObjectMat = metalbjects;
+                    chosenObjectMat = stoneObjects;
+                    break;
+                case 3:
+                    chosenObjectMat = metalObjects;
                     break;
 
                 default:
                     break;
             }
-            GameObject chosenObject = chosenObjectMat[levelGO[i].objectFormIndex];
+            if (chosenObject != enemyObject)
+            {
+                chosenObject = chosenObjectMat[levelGO[i].objectFormIndex];
+            }
 
-            Instantiate(chosenObject, levelGO[i].position, Quaternion.identity);
+            GameObject newlevelObj = Instantiate(chosenObject, levelGO[i].position, Quaternion.identity);
+
+            if (levelGO[i].isRotated == 1)
+            {
+                newlevelObj.transform.rotation = Quaternion.Euler(0, 0, 90);
+            }
         }
+        levelParts.SetActive(true);
+
+        DragHandler.BuildMode = false;
     }
 }

@@ -12,7 +12,7 @@ public class DragHandler : MonoBehaviour
     public DraggableObject lastDragged;
 
     public bool isDragging;
-    public static bool BuildMode = true;
+    public static bool BuildMode = false;
 
     void Start()
     {

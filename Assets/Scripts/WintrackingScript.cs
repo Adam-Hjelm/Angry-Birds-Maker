@@ -17,6 +17,8 @@ public class WintrackingScript : MonoBehaviour
                 remainingEnemies++;
         }
 
+        remainingEnemies -= 1;
+
         Debug.Log(remainingEnemies);
 
         return remainingEnemies == 0;

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-public class SceneTransitionHandler : MonoBehaviour
+public class MainMenuHandler : MonoBehaviour
 {
     public void GoToLevelSelectScene()
     {

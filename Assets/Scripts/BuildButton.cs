@@ -7,12 +7,10 @@ public class BuildButton : MonoBehaviour
 {
     public Sprite[] buildBlockButtonSprites;
     public Image buttonImage;
-    public int currentMatNumber;
-
     public GameObject[] buildObjects;
-
     public DragHandler dragHandler;
 
+    public int currentMatNumber;
     public bool rotated;
 
     private void Start()

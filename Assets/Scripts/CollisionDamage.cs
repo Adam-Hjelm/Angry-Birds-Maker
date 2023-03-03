@@ -29,6 +29,8 @@ public class CollisionDamage : MonoBehaviour
 
     public WintrackingScript wintracker;
 
+    private bool isSimulatingPhysics = false;
+
     public enum ObjectState
     {
         Enemy,
@@ -46,11 +48,22 @@ public class CollisionDamage : MonoBehaviour
         requiredVelocity = startObjHealth / 2;
 
         if (currentObjectState == ObjectState.Enemy)
-            wintracker = GameObject.Find("WinTracker").GetComponent<WintrackingScript>();
+            wintracker = GameObject.Find("LevelParts").GetComponentInChildren<WintrackingScript>();
+
+        StartCoroutine(WaitForPhysics());
+    }
+
+    IEnumerator WaitForPhysics()
+    {
+        isSimulatingPhysics = false;
+        yield return new WaitForSeconds(1);
+        isSimulatingPhysics = true;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (!isSimulatingPhysics) return;
+
         //Debug.Log("collided");
         Vector2 collisionSpeed = collision.relativeVelocity;
         Rigidbody2D otherRBody = collision.gameObject.GetComponent<Rigidbody2D>();
@@ -71,50 +84,6 @@ public class CollisionDamage : MonoBehaviour
                 otherRBody.velocity = collisionSpeed / 2;
         }
 
-    }
-
-    private void DestroySelf()
-    {
-        objHealth = 0;
-
-        //if (gameObject.CompareTag("Enemy"))
-        //{
-
-        //}
-        //Do some particles explosion stuff
-
-        if (!gameObject.CompareTag("Enemy"))
-        {
-            var newParticle = Instantiate(destroyedParticle, transform.position, Quaternion.identity);
-
-            var main = newParticle.main;
-            switch (currentObjectState)
-            {
-                case ObjectState.WoodBlock:
-                    main.startColor = woodColor;
-                    //Debug.Log("spawning WOOD COLORED destroyed particles");
-                    break;
-                case ObjectState.StoneBlock:
-                    main.startColor = stoneColor;
-                    break;
-                case ObjectState.MetalBlock:
-                    main.startColor = metalColor;
-                    break;
-                default:
-                    break;
-            }
-            Destroy(newParticle, 1);
-        }
-        else
-        {
-            if (wintracker.CheckIfMatchWon())
-                Debug.Log("You Won!");
-            else
-            {
-                Debug.Log("One Enemy Down");
-            }
-        }
-        Destroy(gameObject.gameObject);
     }
 
     private void TakeDamage(float damagetaken)
@@ -140,5 +109,37 @@ public class CollisionDamage : MonoBehaviour
             DestroySelf();
             doSpeedUp = true;
         }
+    }
+
+    private void DestroySelf()
+    {
+        objHealth = 0;
+
+        if (!gameObject.CompareTag("Enemy"))
+        {
+            var newParticle = Instantiate(destroyedParticle, transform.position, Quaternion.identity);
+
+            var main = newParticle.main;
+            switch (currentObjectState)
+            {
+                case ObjectState.WoodBlock:
+                    main.startColor = woodColor;
+                    break;
+                case ObjectState.StoneBlock:
+                    main.startColor = stoneColor;
+                    break;
+                case ObjectState.MetalBlock:
+                    main.startColor = metalColor;
+                    break;
+                default:
+                    break;
+            }
+            Destroy(newParticle, 1);
+        }
+        else
+        {
+            wintracker.CheckIfMatchWon();
+        }
+        Destroy(gameObject.gameObject);
     }
 }

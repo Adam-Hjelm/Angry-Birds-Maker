@@ -11,14 +11,15 @@ public class HeavyBird : MonoBehaviour
     {
         if (GetComponent<Projectile>().triggerAbility)
         {
-            WeightUo();
+            IncreaseMassAbility();
         }
     }
 
-    private void WeightUo()
+    private void IncreaseMassAbility()
     {
         var projectileRbody = GetComponent<Rigidbody2D>();
         var newWeightFX = Instantiate(weightParticleSys, transform.position, Quaternion.LookRotation(transform.up));
+        Destroy(newWeightFX);
 
         projectileRbody.mass *= 5;
 

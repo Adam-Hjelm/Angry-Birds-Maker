@@ -9,6 +9,11 @@ public class BuildButtonHandler : MonoBehaviour
 {
     public BuildButton[] buildButtonScripts;
 
+    private void Start()
+    {
+        SceneTransitionHandler.Instance.AddListenerOnReturnButton();
+    }
+
     public void ChangeBuildingMat()
     {
         int materialNumber = 0;
@@ -76,10 +81,5 @@ public class BuildButtonHandler : MonoBehaviour
             }
         }
         //GetComponent<GridLayoutGroup>().cellSize = gridCellSize;
-    }
-
-    public void UploadLevel()
-    {
-
     }
 }

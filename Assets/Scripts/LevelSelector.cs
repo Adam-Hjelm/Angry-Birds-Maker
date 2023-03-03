@@ -46,25 +46,19 @@ public class LevelSelector : MonoBehaviour
         {
             var newButton = Instantiate(buttonPrefab, levelsListHolder.transform).GetComponent<Button>();
             newButton.GetComponentInChildren<TextMeshProUGUI>().text = data[i]._name;
-            //newButton.onClick.AddListener(() => JoinGame(gameInfo)); TODO: Make a function that loads the level on click! c:
 
             var currentLevel = data[i];
             newButton.onClick.AddListener(() => LoadLevel(currentLevel));
             Debug.Log(currentLevel);
         }
-
-        //var gameInfo = JsonUtility.FromJson<GameInfo>(json);
-
-        //if (userInfo.activeGames.Contains(gameInfo.gameID) || gameInfo.players.Count > 1) Not needed
-        //{
-        //    //Don't list our own games or full games.
-        //    return;
-        //}
     }
 
     private void LoadLevel(Level level)
     {
         levelListCanvas.SetActive(false);
+        levelParts.SetActive(true);
+
+        SceneTransitionHandler.Instance.AddListenerOnReturnButton();
 
         var levelGO = level.levelObjects;
 
@@ -103,8 +97,6 @@ public class LevelSelector : MonoBehaviour
                 newlevelObj.transform.rotation = Quaternion.Euler(0, 0, 90);
             }
         }
-        levelParts.SetActive(true);
-
         DragHandler.BuildMode = false;
     }
 }

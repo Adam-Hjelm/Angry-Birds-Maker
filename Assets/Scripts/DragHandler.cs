@@ -14,9 +14,10 @@ public class DragHandler : MonoBehaviour
     public bool isDragging;
     public static bool BuildMode = false;
 
+    private GameObject levelParent;
     void Start()
     {
-
+        levelParent = GameObject.FindWithTag("LevelHolder");
     }
 
     void Update()
@@ -78,6 +79,7 @@ public class DragHandler : MonoBehaviour
 
     private void DropObject()
     {
+        lastDragged.transform.SetParent(levelParent.transform, true);
         isDragging = false;
     }
 

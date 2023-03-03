@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: shapeIndex
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: -2664077647199570962, guid: e942dca81ec268649afaccd5950372f9, type: 3}
+      propertyPath: damagedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 21ed5158bf2ecd147a182f2d29e59a53, type: 3}
     - target: {fileID: 2210135653986108154, guid: e942dca81ec268649afaccd5950372f9, type: 3}
       propertyPath: m_Mass
       value: 0.5285044

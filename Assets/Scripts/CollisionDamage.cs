@@ -140,6 +140,6 @@ public class CollisionDamage : MonoBehaviour
         {
             wintracker.CheckIfMatchWon();
         }
-        Destroy(gameObject.gameObject);
+        Destroy(gameObject);
     }
 }

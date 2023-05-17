@@ -28,9 +28,14 @@ public class WintrackingScript : MonoBehaviour
         {
             winText = GameObject.Find("WinTextHolder");
             winText.transform.GetChild(0).gameObject.SetActive(true);
-
-            Invoke(nameof(SceneTransitionHandler.Instance.GoToMainMenuScene), 3);
+            StartCoroutine(ReturnToLevelSelect());
         }
         //return remainingEnemies == 0;
+    }
+
+    IEnumerator ReturnToLevelSelect()
+    {
+        yield return new WaitForSeconds(2.5f);
+        SceneTransitionHandler.Instance.GoToMainMenuScene();
     }
 }

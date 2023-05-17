@@ -24,11 +24,6 @@ public class LevelSelector : MonoBehaviour
         ListGames();
     }
 
-    void Update()
-    {
-
-    }
-
     public void ListGames()
     {
         levelListCanvas.SetActive(true);

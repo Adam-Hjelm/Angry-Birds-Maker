@@ -19,7 +19,7 @@ public class HeavyBird : MonoBehaviour
     {
         var projectileRbody = GetComponent<Rigidbody2D>();
         var newWeightFX = Instantiate(weightParticleSys, transform.position, Quaternion.LookRotation(transform.up));
-        Destroy(newWeightFX);
+        Destroy(newWeightFX, 1);
 
         projectileRbody.mass *= 5;
 

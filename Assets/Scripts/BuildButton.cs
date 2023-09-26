@@ -21,21 +21,18 @@ public class BuildButton : MonoBehaviour
     public void SpawnBuildingBlock()
     {
         GameObject buildObject = Instantiate(buildObjects[currentMatNumber]);
-        //buildObject.GetComponent<BuildBlock>().isDragged = true;
 
         if (rotated)
         {
             buildObject.transform.rotation = Quaternion.Euler(0, 0, 90);
-            buildObject.GetComponent<CollisionDamage>().isRotatedIndex = 1;
+            buildObject.GetComponent<PhysicsObject>().isRotatedIndex = 1;
         }
-
         dragHandler.lastDragged = buildObject.GetComponent<DraggableObject>();
         dragHandler.isDragging = true;
     }
 
     private void OnMouseDown()
     {
-        //Debug.Log("pressed!");
         SpawnBuildingBlock();
     }
 }

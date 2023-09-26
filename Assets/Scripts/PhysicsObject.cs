@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CollisionDamage : MonoBehaviour
+public class PhysicsObject : MonoBehaviour
 {
     [SerializeField] float maxDamage;
     [SerializeField] float minDamage;
@@ -18,7 +18,7 @@ public class CollisionDamage : MonoBehaviour
     public Sprite damagedSprite;
     public ParticleSystem destroyedParticle;
 
-    private bool doSpeedUp = false;
+    private bool isDestroyed = false;
 
     public Color metalColor;
     public Color stoneColor;
@@ -64,7 +64,6 @@ public class CollisionDamage : MonoBehaviour
     {
         if (!isSimulatingPhysics) return;
 
-        //Debug.Log("collided");
         Vector2 collisionSpeed = collision.relativeVelocity;
         Rigidbody2D otherRBody = collision.gameObject.GetComponent<Rigidbody2D>();
 
@@ -73,14 +72,10 @@ public class CollisionDamage : MonoBehaviour
             float damageToTake;
             damageToTake = collisionSpeed.magnitude;
 
-
             Mathf.Clamp(damageToTake, minDamage, maxDamage);
             TakeDamage(damageToTake);
 
-            //Debug.Log(objHealth + " health left");
-            //Debug.Log(damageToTake);
-
-            if (doSpeedUp && otherRBody != null)
+            if (isDestroyed && otherRBody != null)
                 otherRBody.velocity = collisionSpeed / 2;
         }
 
@@ -107,7 +102,7 @@ public class CollisionDamage : MonoBehaviour
         if (objHealth <= 0)
         {
             DestroySelf();
-            doSpeedUp = true;
+            isDestroyed = true;
         }
     }
 

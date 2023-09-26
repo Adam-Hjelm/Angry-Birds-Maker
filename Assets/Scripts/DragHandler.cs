@@ -22,17 +22,6 @@ public class DragHandler : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.G) && BuildMode == false)
-        {
-            BuildMode = true;
-            Debug.Log("buildmode turned on");
-        }
-        else if (Input.GetKeyUp(KeyCode.G) && BuildMode)
-        {
-            BuildMode = false;
-            Debug.Log("buildmode turned off");
-        }
-
         if (isDragging && (Input.GetMouseButtonUp(0) || (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Ended)))
         {
             DropObject();
@@ -43,8 +32,6 @@ public class DragHandler : MonoBehaviour
         {
             Vector3 mousePosition = Input.mousePosition;
             interactPointPos = new Vector2(mousePosition.x, mousePosition.y);
-
-            //transform.position = Camera.main.ScreenToWorldPoint(interactPointPos);
         }
         else if (Input.touchCount > 0 && BuildMode)
         {

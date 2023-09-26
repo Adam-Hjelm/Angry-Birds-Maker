@@ -12,11 +12,11 @@ public class WintrackingScript : MonoBehaviour
     public void CheckIfMatchWon()
     {
         remainingEnemies = 0;
-        CollisionDamage[] collisionDamageScripts = FindObjectsOfType<CollisionDamage>();
+        PhysicsObject[] collisionDamageScripts = FindObjectsOfType<PhysicsObject>();
 
         for (int i = 0; i < collisionDamageScripts.Length; i++)
         {
-            if (collisionDamageScripts[i].currentObjectState == CollisionDamage.ObjectState.Enemy)
+            if (collisionDamageScripts[i].currentObjectState == PhysicsObject.ObjectState.Enemy)
                 remainingEnemies++;
         }
 

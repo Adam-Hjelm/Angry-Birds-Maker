@@ -9,11 +9,9 @@ public class TrajectoryLine : MonoBehaviour
 
     public LineRenderer lineRend;
 
-    //private Vector3 startPos;
     private int lineSegments = 40;
 
     private float timeOfTheFlight = 2.5f;
-    //private float timeStep;
 
     void Start()
     {
@@ -25,8 +23,6 @@ public class TrajectoryLine : MonoBehaviour
         lineRend.enabled = true;
         float timeStep = timeOfTheFlight / lineSegments;
 
-        //startPos = projectilePos;
-
         Vector3[] lineRendPoints = CalculateLine(timeStep, startVelocity, startPos);
 
         lineRend.positionCount = lineSegments;
@@ -36,7 +32,6 @@ public class TrajectoryLine : MonoBehaviour
     private Vector3[] CalculateLine(float timeStep, Vector3 startVelocity, Vector3 startPos)
     {
         Vector3[] LineRendPoints = new Vector3[lineSegments];
-        //Vector3 birdForce = -1 * slingShotScript.force * (slingShotScript.currentPosition - slingShotScript.center.position);
 
         LineRendPoints[0] = startPos;
 
@@ -48,7 +43,6 @@ public class TrajectoryLine : MonoBehaviour
             Vector3 gravityDiff = -0.5f * Physics.gravity.y * timeDiff * timeDiff * Vector3.up;
             Vector3 withGravityPosition = startPos + noGravityPosition - gravityDiff;
             LineRendPoints[i] = withGravityPosition;
-            //Debug.Log(LineRendPoints[i]);
         }
         return LineRendPoints;
     }

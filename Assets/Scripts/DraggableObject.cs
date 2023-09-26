@@ -32,7 +32,7 @@ public class DraggableObject : MonoBehaviour
     {
         //Debug.Log("physics disabled!");
         GetComponent<Collider2D>().isTrigger = !isEnabled;
-        GetComponent<CollisionDamage>().enabled = isEnabled; // TODO: Have collision damage be turned off a second at the start to avoid objects breaking when physics is enabled
+        GetComponent<PhysicsObject>().enabled = isEnabled; // TODO: Have collision damage be turned off a second at the start to avoid objects breaking when physics is enabled
         if (isEnabled)
             GetComponent<Rigidbody2D>().gravityScale = 1;
         else

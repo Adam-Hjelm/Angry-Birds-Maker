@@ -22,7 +22,7 @@ public class SpeedUpBird : MonoBehaviour
         Destroy(newSpeedUpFx, 1);
 
         projectileRbody.velocity *= 2.5f;
-        //projectileRbody.mass /= 2;
+
         GetComponent<Projectile>().triggerAbility = false;
         GetComponent<Projectile>().abilityUses--;
     }

@@ -59,7 +59,7 @@ public class LevelSelector : MonoBehaviour
 
         for (int i = 0; i < levelGO.Count; i++)
         {
-            GameObject[] chosenObjectMat = null;
+            GameObject[] objectMaterialPool = null;
             GameObject chosenObject = null;
 
             switch (levelGO[i].objectMatIndex)
@@ -68,13 +68,13 @@ public class LevelSelector : MonoBehaviour
                     chosenObject = enemyObject;
                     break;
                 case 1:
-                    chosenObjectMat = woodObjects;
+                    objectMaterialPool = woodObjects;
                     break;
                 case 2:
-                    chosenObjectMat = stoneObjects;
+                    objectMaterialPool = stoneObjects;
                     break;
                 case 3:
-                    chosenObjectMat = metalObjects;
+                    objectMaterialPool = metalObjects;
                     break;
 
                 default:
@@ -82,7 +82,7 @@ public class LevelSelector : MonoBehaviour
             }
             if (chosenObject != enemyObject)
             {
-                chosenObject = chosenObjectMat[levelGO[i].objectFormIndex];
+                chosenObject = objectMaterialPool[levelGO[i].objectFormIndex];
             }
 
             GameObject newlevelObj = Instantiate(chosenObject, levelGO[i].position, Quaternion.identity);
